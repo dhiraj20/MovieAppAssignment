@@ -19,7 +19,7 @@ const customStyles = {
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement(document.getElementById('root'));
 
-function Login(props) {
+function Authenticate(props) {
     let subtitle;
 
     function afterOpenModal() {
@@ -48,4 +48,4 @@ function Login(props) {
     );
 }
 
-export default Login;
+export default Authenticate;

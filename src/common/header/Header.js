@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import Button from "@material-ui/core/Button";
 import './header.css';
 import logo from '../../assets/logo.svg';
-import Login from "../../screens/login/Login";
+import Authenticate from "../../screens/authenticate/Authenticate";
 
 export default function Header() {
     const [modalIsOpen, setIsOpen] = useState(false);
 
     function login() {
-        console.log("login clicked");
+        console.log("authenticate clicked");
         setIsOpen(true);
     }
 
@@ -35,7 +35,7 @@ export default function Header() {
                     color="primary"
                     ml={2}
             >BOOK SHOW</Button>
-            <Login modalOpen={modalIsOpen} closeModal={modalClose}/>
+            <Authenticate modalOpen={modalIsOpen} closeModal={modalClose}/>
         </div>
     )
 }
