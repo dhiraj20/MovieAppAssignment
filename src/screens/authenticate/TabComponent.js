@@ -12,6 +12,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button';
 import './login.css';
 
+import Login from './login';
+
 function TabContainer({children, dir}) {
     return (
         <Typography component="div" dir={dir} style={{padding: 8 * 3}}>
@@ -79,27 +81,7 @@ class TabComponent extends React.Component {
                     onChangeIndex={this.handleChangeIndex}
                 >
                     <TabContainer dir={theme.direction}>
-                        <form className="form">
-                            <div className="form-control">
-                                <FormControl>
-                                    <InputLabel htmlFor="username" required={true}>Username</InputLabel>
-                                    <Input id="username" name="username" aria-describedby="username"
-                                           onChange={this.changeEvent}/>
-                                </FormControl>
-                            </div>
-                            <div className="form-control">
-                                <FormControl>
-                                    <InputLabel htmlFor="password" required={true}>Password</InputLabel>
-                                    <Input id="password" name="password" aria-describedby="password"
-                                           onChange={this.changeEvent}/>
-                                </FormControl>
-                            </div>
-                            <div className="btn">
-                                <Button variant="contained" color="primary" onClick={this.submitForm}>
-                                    LOGIN
-                                </Button>
-                            </div>
-                        </form>
+                        <Login />
                     </TabContainer>
                     <TabContainer dir={theme.direction}>Register</TabContainer>
                 </SwipeableViews>
