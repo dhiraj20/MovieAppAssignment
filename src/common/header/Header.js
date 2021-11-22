@@ -8,7 +8,6 @@ export default function Header() {
     const [modalIsOpen, setIsOpen] = useState(false);
 
     function login() {
-        console.log("authenticate clicked");
         setIsOpen(true);
     }
 
@@ -27,13 +26,11 @@ export default function Header() {
             <Button className="btn"
                     variant="contained"
                     color="default"
-                    ml={2}
             >LOGOUT</Button>
             <Button className="btn "
                     variant="contained"
-                    onClick=""
+                    onClick={() => {}}
                     color="primary"
-                    ml={2}
             >BOOK SHOW</Button>
             <Authenticate modalOpen={modalIsOpen} closeModal={modalClose}/>
         </div>

@@ -6,13 +6,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import Button from '@material-ui/core/Button';
-import './login.css';
+import './Authenticate.css';
 
-import Login from './login';
+import Login from './Login';
+import Register from "./Register";
 
 function TabContainer({children, dir}) {
     return (
@@ -49,11 +46,6 @@ class TabComponent extends React.Component {
         this.setState({value: index});
     };
 
-    changeEvent = e => {
-        this.state[e.target.name] = e.target.value;
-        console.log(this.state);
-    }
-
     submitForm = e => {
         console.log(e);
     }
@@ -83,7 +75,9 @@ class TabComponent extends React.Component {
                     <TabContainer dir={theme.direction}>
                         <Login />
                     </TabContainer>
-                    <TabContainer dir={theme.direction}>Register</TabContainer>
+                    <TabContainer dir={theme.direction}>
+                        <Register />
+                    </TabContainer>
                 </SwipeableViews>
             </div>
         );

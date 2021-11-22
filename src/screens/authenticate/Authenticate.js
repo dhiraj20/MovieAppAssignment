@@ -20,18 +20,9 @@ const customStyles = {
 Modal.setAppElement(document.getElementById('root'));
 
 function Authenticate(props) {
-    let subtitle;
 
     function afterOpenModal() {
     }
-
-    const [value, setValue] = React.useState(0);
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
-    const handleChangeIndex = (index) => {
-        setValue(index);
-    };
 
     return (
         <div>

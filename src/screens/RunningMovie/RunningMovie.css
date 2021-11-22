@@ -1,0 +1,15 @@
+.runningmoviecontainer {
+    display: flex;
+    margin: 16px;
+}
+.runningmoviecontainer .left {
+    width: 76%;
+}
+
+.runningmoviecontainer .right {
+    width: 24%;
+}
+
+.imageitem:hover {
+    cursor: pointer;
+}
