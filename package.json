@@ -6,6 +6,9 @@
     "@material-ui/core": "^4.1.2",
     "@material-ui/icons": "^4.1.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.4.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-modal": "^3.14.4",
@@ -17,7 +20,14 @@
     "styled-components": "^5.3.3",
     "typeface-roboto": "0.0.54"
   },
+  "lint-staged": {
+     "src/**/*.{js,jsx,json,css}": [
+        "prettier --single-quote --write",
+        "git add"
+      ]
+  },
   "scripts": {
+    "precommit": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
