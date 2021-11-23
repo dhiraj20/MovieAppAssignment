@@ -1,44 +1,44 @@
 .detailscontainer {
-    display: flex;
-    margin-top: 10px;
+  display: flex;
+  margin-top: 10px;
 }
 
 .detailscontainer .left {
-    width: 20%;
-    margin-left: 20px;
+  width: 20%;
+  margin-left: 20px;
 }
 
 .detailscontainer .middle {
-    width: 60%;
-    margin: 0 30px;
+  width: 60%;
+  margin: 0 30px;
 }
 
 .detailscontainer .right {
-    width: 20%;
+  width: 20%;
 }
 
-.detailscontainer .right .imagelist{
-   height: 300px !important;
+.detailscontainer .right .imagelist {
+  height: 300px !important;
 }
 
-.detailscontainer .right .detailsimageitem{
-    width: 40% !important;
-    margin-right: 10px;
-    margin-bottom: 10px;
+.detailscontainer .right .detailsimageitem {
+  width: 40% !important;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .detailscontainer .listitem {
-    width: 70% !important;
+  width: 70% !important;
 }
 
 .boldtext {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .mt16 {
-    margin-top: 16px !important;
+  margin-top: 16px !important;
 }
 
 .artists {
-    margin: 16px 0;
+  margin: 16px 0;
 }

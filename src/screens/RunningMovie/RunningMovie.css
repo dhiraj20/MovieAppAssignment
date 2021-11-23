@@ -1,31 +1,31 @@
 .runningmoviecontainer {
-    display: flex;
-    margin: 16px;
+  display: flex;
+  margin: 16px;
 }
 .runningmoviecontainer .left {
-    width: 76%;
+  width: 76%;
 }
 
 .runningmoviecontainer .right {
-    width: 24%;
-    display: flex;
-    justify-content: flex-end;
-    height: 470px;
+  width: 24%;
+  display: flex;
+  justify-content: flex-end;
+  height: 470px;
 }
 
 .imageitem {
-    margin: 16px;
-    height: 350px !important;
-    width: 250px !important;
+  margin: 16px;
+  height: 350px !important;
+  width: 250px !important;
 }
 .imageitem:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .date-text {
-    text-align: left;
+  text-align: left;
 }
 
 .form {
-    text-align: left;
+  text-align: left;
 }

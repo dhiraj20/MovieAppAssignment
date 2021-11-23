@@ -1,18 +1,18 @@
 .upcomingmovieheader {
-    background-color:  #ff9999;
-    padding: 8px;
-    text-align: center;
-    font-size: 1rem;
+  background-color: #ff9999;
+  padding: 8px;
+  text-align: center;
+  font-size: 1rem;
 }
 
 .upcomingmoviecontainer {
-    width: 100%;
-    display: flex;
-    overflow: auto;
+  width: 100%;
+  display: flex;
+  overflow: auto;
 }
 
 .upcomingmoviecontainer .flexscroll {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
 }

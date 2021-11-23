@@ -1,13 +1,13 @@
 .header {
-    height: 36px;
-    background-color: #222;
-    padding: 8px 32px 8px 6px;
+  height: 36px;
+  background-color: #222;
+  padding: 8px 32px 8px 6px;
 }
 .header .logo {
-    height: 35px;
-    background-color: #ff7f7f;
+  height: 35px;
+  background-color: #ff7f7f;
 }
 .header .btn {
-    float: right;
-    margin-left: 20px;
+  float: right;
+  margin-left: 20px;
 }
