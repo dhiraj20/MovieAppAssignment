@@ -65,7 +65,7 @@ export default function Details(props) {
 
     return (
         <div>
-            <Header showBookShowBtn='true'/>
+            <Header showBookShowBtn='true' id={props.match.params.id}/>
             <Typography className={classes.root} onClick={backToHome}>&#60; Back to Home</Typography>
             {
                 movie && <div className="detailscontainer">
@@ -118,7 +118,7 @@ export default function Details(props) {
                             {movie.artists && (
                                 <ImageList cols={2}>
                                     {movie.artists.map(movie => (
-                                        <ImageListItem key={movie.profile_url} className="imageitem">
+                                        <ImageListItem key={movie.profile_url} className="detailsimageitem">
                                             <img
                                                 src={movie.profile_url}
                                                 srcSet={movie.profile_url}

@@ -1,37 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import './UpcomingMovies.css';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import {ImageList, ImageListItem, ImageListItemBar} from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-        flexFlow: 'row',
-        width: '400px',
-        overflow: 'auto',
-        backgroundColor: theme.palette.background.paper,
-    },
-    control: {
-        padding: theme.spacing(2),
-    },
-}));
-
 
 export default function UpcomingMovies(props) {
     const baseUrl = props.baseUrl;
-    const classes = useStyles();
     const [movies, setMovies] = useState([]);
 
 
     useEffect(() => {
         let mounted = true;
         if (mounted) {
-            fetch(`${baseUrl}movies`)
+            fetch(`${baseUrl}movies?page=1&limit=200`)
                 .then(response => response.json())
                 .then(data => {
-                    setMovies(data.movies);
+                    let upcomingMovie = data.movies.filter(movie => movie.status === 'PUBLISHED');
+                    setMovies(upcomingMovie);
                 });
         }
         return () => {
@@ -44,7 +27,7 @@ export default function UpcomingMovies(props) {
         <div>
             <div className="upcomingmovieheader">Upcoming Movies</div>
             <div className="upcomingmoviecontainer">
-                <ImageList  cols={6} rowHeight={250} className="flexscroll">
+                <ImageList  cols={6} rowHeight={246} className="flexscroll">
                     {movies.map(movie => (
                         <ImageListItem key={movie.poster_url}>
                             <img

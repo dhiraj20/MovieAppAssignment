@@ -9,7 +9,6 @@
     width: 100%;
     display: flex;
     overflow: auto;
-    margin: 5px;
 }
 
 .upcomingmoviecontainer .flexscroll {

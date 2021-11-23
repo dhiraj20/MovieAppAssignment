@@ -16,31 +16,30 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 import {useHistory} from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         minWidth: 240,
-        maxWidth: 240
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
+        maxWidth: 240,
+        marginTop: '16px',
+        margin: theme.spacing(1)
     },
     title: {
-        fontSize: 14,
+        fontSize: 16,
         color: theme.palette.primary.light
     },
-    pos: {
-        marginBottom: 12,
-    },
+   card: {
+      display: 'flex',
+       justifyContent: 'flex-end',
+       height: '470px'
+   }
 }));
 
 const multiSelectStyle = makeStyles((theme) => ({
     formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120,
-        maxWidth: 300,
+        minWidth: '100%',
+        maxWidth: '100%',
     },
     chips: {
         display: 'flex',
@@ -72,9 +71,10 @@ export default function RunningMovies(props) {
     const [artistsList, setArtistsList] = useState([]);
 
     async function getMovies() {
-        let response = await fetch(`${baseUrl}/movies`);
+        let response = await fetch(`${baseUrl}/movies?page=1&limit=200`);
         response = await response.json()
-        setMovies(response.movies);
+        let runningMovie = response.movies.filter(movie => movie.status === 'RELEASED');
+        setMovies(runningMovie);
     }
 
     async function getGenres() {
@@ -120,7 +120,6 @@ export default function RunningMovies(props) {
 
     const handleChange = (event) => {
         setPersonName(event.target.value);
-        console.log(personName);
     };
 
     const handleChangeArtists = (event) => {
@@ -157,8 +156,8 @@ export default function RunningMovies(props) {
                         </div>
                         <form className="form">
                             <div className="form-control">
-                                <FormControl>
-                                    <InputLabel htmlFor="moviename" required={true}>Movie Name</InputLabel>
+                                <FormControl className={multiSelect.formControl}>
+                                    <InputLabel htmlFor="moviename">Movie Name</InputLabel>
                                     <Input id="moviename" name="title" aria-describedby="title" type="text"
                                            onChange={e => setTitle(e.target.value)} defaultValue={title}/>
                                 </FormControl>
@@ -208,18 +207,23 @@ export default function RunningMovies(props) {
                                 </FormControl>
                             </div>
                             <div className="form-control">
-                                <InputLabel htmlFor="start_date" required={true} shrink={true}>Release Date
+                                <InputLabel className="date-text" htmlFor="start_date" required={true} shrink={true}>Release Date
                                     Start</InputLabel>
-                                <FormControl>
-                                    <TextField id="start_date" type="date"/>;
+                                <FormControl className={multiSelect.formControl}>
+                                    <TextField id="start_date" type="date"/>
                                 </FormControl>
                             </div>
                             <div className="form-control">
-                                <InputLabel htmlFor="end_date" required={true} shrink={true}>Release Date
+                                <InputLabel className="date-text" htmlFor="end_date" required={true} shrink={true}>Release Date
                                     End</InputLabel>
-                                <FormControl>
-                                    <TextField id="end_date" type="date"/>;
+                                <FormControl className={multiSelect.formControl}>
+                                    <TextField id="end_date" type="date"/>
                                 </FormControl>
+                            </div>
+                            <div className="form-control">
+                                <Button variant="contained" color="primary" className={multiSelect.formControl}>
+                                    APPLY
+                                </Button>
                             </div>
                         </form>
                     </CardContent>

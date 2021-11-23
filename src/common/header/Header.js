@@ -3,8 +3,10 @@ import Button from "@material-ui/core/Button";
 import './header.css';
 import logo from '../../assets/logo.svg';
 import Authenticate from "../../screens/authenticate/Authenticate";
+import {useHistory} from "react-router-dom";
 
 export default function Header(props) {
+    let history = useHistory();
     const [modalIsOpen, setIsOpen] = useState(false);
 
     function login() {
@@ -14,6 +16,9 @@ export default function Header(props) {
     function modalClose() {
         setIsOpen(false);
     }
+
+    const bookShow = () => history.push(`/bookshow/${props.id}`);
+
 
     return (
         <div className="header">
@@ -31,7 +36,7 @@ export default function Header(props) {
                 props.showBookShowBtn && (
                     <Button className="btn"
                             variant="contained"
-                            onClick={() => {}}
+                            onClick={bookShow}
                             color="primary"
                     >BOOK SHOW</Button>
                 )

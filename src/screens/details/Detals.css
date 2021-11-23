@@ -21,9 +21,10 @@
    height: 300px !important;
 }
 
-.detailscontainer .right .imageitem{
+.detailscontainer .right .detailsimageitem{
     width: 40% !important;
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .detailscontainer .listitem {
