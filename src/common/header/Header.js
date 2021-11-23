@@ -4,7 +4,7 @@ import './header.css';
 import logo from '../../assets/logo.svg';
 import Authenticate from "../../screens/authenticate/Authenticate";
 
-export default function Header() {
+export default function Header(props) {
     const [modalIsOpen, setIsOpen] = useState(false);
 
     function login() {
@@ -27,11 +27,15 @@ export default function Header() {
                     variant="contained"
                     color="default"
             >LOGOUT</Button>
-            <Button className="btn "
-                    variant="contained"
-                    onClick={() => {}}
-                    color="primary"
-            >BOOK SHOW</Button>
+            {
+                props.showBookShowBtn && (
+                    <Button className="btn"
+                            variant="contained"
+                            onClick={() => {}}
+                            color="primary"
+                    >BOOK SHOW</Button>
+                )
+            }
             <Authenticate modalOpen={modalIsOpen} closeModal={modalClose}/>
         </div>
     )
