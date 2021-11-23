@@ -65,7 +65,7 @@ export default function Details(props) {
 
     return (
         <div>
-            <Header showBookShowBtn= 'true'/>
+            <Header showBookShowBtn='true'/>
             <Typography className={classes.root} onClick={backToHome}>&#60; Back to Home</Typography>
             {
                 movie && <div className="detailscontainer">

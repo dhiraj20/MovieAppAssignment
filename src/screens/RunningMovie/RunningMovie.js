@@ -208,15 +208,17 @@ export default function RunningMovies(props) {
                                 </FormControl>
                             </div>
                             <div className="form-control">
-                                <InputLabel htmlFor="start_date" required={true} shrink={true}>Release Date Start</InputLabel>
-                                <FormControl >
-                                    <TextField id="start_date" type="date"  />;
+                                <InputLabel htmlFor="start_date" required={true} shrink={true}>Release Date
+                                    Start</InputLabel>
+                                <FormControl>
+                                    <TextField id="start_date" type="date"/>;
                                 </FormControl>
                             </div>
                             <div className="form-control">
-                                <InputLabel htmlFor="end_date" required={true} shrink={true}>Release Date End</InputLabel>
-                                <FormControl >
-                                    <TextField id="end_date" type="date"  />;
+                                <InputLabel htmlFor="end_date" required={true} shrink={true}>Release Date
+                                    End</InputLabel>
+                                <FormControl>
+                                    <TextField id="end_date" type="date"/>;
                                 </FormControl>
                             </div>
                         </form>
