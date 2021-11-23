@@ -154,7 +154,7 @@ export default function RunningMovies(props) {
         <Card className={classes.root} variant="outlined">
           <CardContent>
             <div className={classes.title}>FIND MOVIE BY:</div>
-            <form className="form">
+            <form className="running-form">
               <div className="form-control">
                 <FormControl className={multiSelect.formControl}>
                   <InputLabel htmlFor="moviename">Movie Name</InputLabel>

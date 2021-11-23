@@ -5,15 +5,33 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button';
 import './Authenticate.css';
 
-export default function Login() {
+const baseUrl = '/api/v1/';
+
+export default function Login(props) {
   let [username, setUsername] = useState('');
   let [password, setPassword] = useState('');
   let [usernameError, setUsernameError] = useState(false);
   let [passwordError, setPasswordError] = useState(false);
-
-  function submitForm() {
+  async function submitForm() {
     if (isFormValid()) {
-      console.log('form valid');
+      let authorization = btoa(`${username}:${password}`);
+      let response = await fetch(`${baseUrl}auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache',
+          'authorization': `Basic ${authorization}`
+        },
+      });
+      response = await response.json();
+      if (response.code === "USR-003") {
+        console.log('an error ');
+        return;
+      }
+      sessionStorage.setItem('user-detail', JSON.stringify(response));
+      sessionStorage.setItem('access-token', authorization);
+      window.location.reload();
+      props.closeModal();
     }
   }
 
