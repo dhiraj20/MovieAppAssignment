@@ -24,8 +24,8 @@ export default function Register() {
       last_name,
       email_address,
       password,
-      mobile_number
-    }
+      mobile_number,
+    };
     if (validateForm()) {
       setSuccessMsg(true);
       let response = await fetch(`${baseUrl}signup`, {
@@ -34,7 +34,7 @@ export default function Register() {
           'Content-Type': 'application/json',
           'Cache-Control': 'no-cache',
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
       });
       response = await response.json();
       if (response) {
@@ -44,7 +44,9 @@ export default function Register() {
   }
 
   function validateForm() {
-    return first_name && last_name && email_address && password && mobile_number;
+    return (
+      first_name && last_name && email_address && password && mobile_number
+    );
   }
 
   return (
@@ -62,9 +64,9 @@ export default function Register() {
             onChange={(e) => setFirstname(e.target.value)}
             defaultValue={first_name}
           />
-          {
-            isFormTouched && first_name === '' && (<FormHelperText error={true}>required</FormHelperText>)
-          }
+          {isFormTouched && first_name === '' && (
+            <FormHelperText error={true}>required</FormHelperText>
+          )}
         </FormControl>
       </div>
       <div className="form-control">
@@ -80,9 +82,9 @@ export default function Register() {
             onChange={(e) => setLastname(e.target.value)}
             defaultValue={last_name}
           />
-          {
-            isFormTouched && last_name === '' && (<FormHelperText error={true}>required</FormHelperText>)
-          }
+          {isFormTouched && last_name === '' && (
+            <FormHelperText error={true}>required</FormHelperText>
+          )}
         </FormControl>
       </div>
       <div className="form-control">
@@ -98,9 +100,9 @@ export default function Register() {
             onChange={(e) => setEmail(e.target.value)}
             defaultValue={email_address}
           />
-          {
-            isFormTouched && email_address === '' && (<FormHelperText error={true}>required</FormHelperText>)
-          }
+          {isFormTouched && email_address === '' && (
+            <FormHelperText error={true}>required</FormHelperText>
+          )}
         </FormControl>
       </div>
       <div className="form-control">
@@ -116,9 +118,9 @@ export default function Register() {
             onChange={(e) => setPassword(e.target.value)}
             defaultValue={password}
           />
-          {
-            isFormTouched && password === '' && (<FormHelperText error={true}>required</FormHelperText>)
-          }
+          {isFormTouched && password === '' && (
+            <FormHelperText error={true}>required</FormHelperText>
+          )}
         </FormControl>
       </div>
       <div className="form-control">
@@ -134,15 +136,17 @@ export default function Register() {
             onChange={(e) => setMobileNumber(e.target.value)}
             defaultValue={mobile_number}
           />
-          {
-            isFormTouched && mobile_number === '' && (<FormHelperText error={true}>required</FormHelperText>)
-          }
+          {isFormTouched && mobile_number === '' && (
+            <FormHelperText error={true}>required</FormHelperText>
+          )}
         </FormControl>
       </div>
       <div className="btn">
-        {
-          showSuccessMsg && (<FormHelperText className="successmsg">Registration Successful. Please Login!</FormHelperText>)
-        }
+        {showSuccessMsg && (
+          <FormHelperText className="successmsg">
+            Registration Successful. Please Login!
+          </FormHelperText>
+        )}
         <Button variant="contained" color="primary" onClick={submitForm}>
           REGISTER
         </Button>

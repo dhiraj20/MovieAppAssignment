@@ -20,11 +20,11 @@ export default function Login(props) {
         headers: {
           'Content-Type': 'application/json',
           'Cache-Control': 'no-cache',
-          'authorization': `Basic ${authorization}`
+          authorization: `Basic ${authorization}`,
         },
       });
       response = await response.json();
-      if (response.code === "USR-003") {
+      if (response.code === 'USR-003') {
         console.log('an error ');
         return;
       }

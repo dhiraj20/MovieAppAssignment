@@ -73,7 +73,7 @@ class TabComponent extends React.Component {
           onChangeIndex={this.handleChangeIndex}
         >
           <TabContainer dir={theme.direction}>
-            <Login closeModal={this.props.closeModal}/>
+            <Login closeModal={this.props.closeModal} />
           </TabContainer>
           <TabContainer dir={theme.direction}>
             <Register />

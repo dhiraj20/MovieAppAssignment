@@ -6,7 +6,7 @@ import RunningMovies from '../RunningMovie/RunningMovie';
 export default function Home(props) {
   return (
     <div>
-      <Header baseUrl={props.baseUrl}/>
+      <Header baseUrl={props.baseUrl} />
       <UpcomingMovies baseUrl={props.baseUrl} />
       <RunningMovies baseUrl={props.baseUrl} />
     </div>

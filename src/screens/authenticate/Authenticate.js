@@ -29,7 +29,7 @@ function Authenticate(props) {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <TabComponent closeModal={props.closeModal}/>
+        <TabComponent closeModal={props.closeModal} />
       </Modal>
     </div>
   );
