@@ -6,20 +6,44 @@ import Button from '@material-ui/core/Button';
 import './Authenticate.css';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
-export default function Register() {
-  let [firstname, setFirstname] = useState('');
-  let [lastname, setLastname] = useState('');
-  let [email, setEmail] = useState('');
-  let [password, setPassword] = useState('');
-  let [contact, setContact] = useState('');
+const baseUrl = '/api/v1/';
 
-  function submitForm() {
-    if (isFormValid()) {
-      console.log('form valid');
+export default function Register() {
+  let [first_name, setFirstname] = useState('');
+  let [last_name, setLastname] = useState('');
+  let [email_address, setEmail] = useState('');
+  let [password, setPassword] = useState('');
+  let [mobile_number, setMobileNumber] = useState('');
+  let [isFormTouched, setFormTouched] = useState(false);
+  let [showSuccessMsg, setSuccessMsg] = useState(false);
+
+  async function submitForm() {
+    setFormTouched(true);
+    const payload = {
+      first_name,
+      last_name,
+      email_address,
+      password,
+      mobile_number
+    }
+    if (validateForm()) {
+      setSuccessMsg(true);
+      let response = await fetch(`${baseUrl}signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache',
+        },
+        body: JSON.stringify(payload)
+      });
+      response = await response.json();
+      setSuccessMsg(true);
     }
   }
 
-  function isFormValid() {}
+  function validateForm() {
+    return first_name && last_name && email_address && password && mobile_number;
+  }
 
   return (
     <form className="form">
@@ -34,9 +58,11 @@ export default function Register() {
             aria-describedby="firstname"
             type="text"
             onChange={(e) => setFirstname(e.target.value)}
-            defaultValue={firstname}
+            defaultValue={first_name}
           />
-          <FormHelperText error={true}>required</FormHelperText>
+          {
+            isFormTouched && first_name === '' && (<FormHelperText error={true}>required</FormHelperText>)
+          }
         </FormControl>
       </div>
       <div className="form-control">
@@ -50,8 +76,11 @@ export default function Register() {
             aria-describedby="lastname"
             type="text"
             onChange={(e) => setLastname(e.target.value)}
-            defaultValue={lastname}
+            defaultValue={last_name}
           />
+          {
+            isFormTouched && last_name === '' && (<FormHelperText error={true}>required</FormHelperText>)
+          }
         </FormControl>
       </div>
       <div className="form-control">
@@ -65,8 +94,11 @@ export default function Register() {
             aria-describedby="email"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
-            defaultValue={email}
+            defaultValue={email_address}
           />
+          {
+            isFormTouched && email_address === '' && (<FormHelperText error={true}>required</FormHelperText>)
+          }
         </FormControl>
       </div>
       <div className="form-control">
@@ -75,13 +107,16 @@ export default function Register() {
             Password
           </InputLabel>
           <Input
-            id="password"
+            id="register-password"
             name="password"
             aria-describedby="password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             defaultValue={password}
           />
+          {
+            isFormTouched && password === '' && (<FormHelperText error={true}>required</FormHelperText>)
+          }
         </FormControl>
       </div>
       <div className="form-control">
@@ -94,12 +129,18 @@ export default function Register() {
             name="contact"
             aria-describedby="contact"
             type="number"
-            onChange={(e) => setContact(e.target.value)}
-            defaultValue={contact}
+            onChange={(e) => setMobileNumber(e.target.value)}
+            defaultValue={mobile_number}
           />
+          {
+            isFormTouched && mobile_number === '' && (<FormHelperText error={true}>required</FormHelperText>)
+          }
         </FormControl>
       </div>
       <div className="btn">
+        {
+          showSuccessMsg && (<FormHelperText className="successmsg">Registration Successful. Please Login!</FormHelperText>)
+        }
         <Button variant="contained" color="primary" onClick={submitForm}>
           REGISTER
         </Button>
