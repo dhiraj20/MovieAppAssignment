@@ -25,7 +25,13 @@ export default function Header(props) {
         setIsOpen(false);
     }
 
-    const bookShow = () => history.push(`/bookshow/${props.id}`);
+    const bookShow = () => {
+        if(accessToken) {
+            history.push(`/bookshow/${props.id}`);
+            return;
+        }
+        login();
+    };
 
     return (
         <div className="header">

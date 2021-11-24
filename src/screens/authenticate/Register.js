@@ -37,7 +37,9 @@ export default function Register() {
         body: JSON.stringify(payload)
       });
       response = await response.json();
-      setSuccessMsg(true);
+      if (response) {
+        setSuccessMsg(true);
+      }
     }
   }
 
