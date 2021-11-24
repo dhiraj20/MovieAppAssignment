@@ -97,13 +97,13 @@ export default function RunningMovies(props) {
     }
 
     async function getGenres() {
-        let response = await fetch(`${baseUrl}/genres`);
+        let response = await fetch(`${baseUrl}/genres?page=1&limit=100`);
         response = await response.json();
         setGenres(response.genres);
     }
 
     async function getArtists() {
-        let response = await fetch(`${baseUrl}/artists?page=1&limit=20`);
+        let response = await fetch(`${baseUrl}/artists?page=1&limit=100`);
         response = await response.json();
         setArtists(response.artists);
     }

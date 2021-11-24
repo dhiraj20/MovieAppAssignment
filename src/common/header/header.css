@@ -11,3 +11,12 @@
   float: right;
   margin-left: 20px;
 }
+
+.imageRotateHorizontal{
+  animation: spinHorizontal 8s infinite linear;
+}
+
+@keyframes spinHorizontal {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}

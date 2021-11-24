@@ -35,7 +35,7 @@ export default function Header(props) {
 
     return (
         <div className="header">
-            <img className="logo" src={logo} alt="logo"/>
+            <img className="logo imageRotateHorizontal" src={logo} alt="logo"/>
             {
                 !accessToken && (
                     <Button
